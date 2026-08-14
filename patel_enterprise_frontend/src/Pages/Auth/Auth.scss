@@ -1,0 +1,504 @@
+// ============================================
+// GOOGLE FONTS
+// ============================================
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+// ============================================
+// VARIABLES
+// ============================================
+$primary: #5a3ec8;
+$primary-dark: #4b37c4;
+$primary-light: #7b5fe8;
+$white: #ffffff;
+$black: #1a1a2e;
+$gray: #6b7280;
+$light-gray: #f3f4f6;
+$error: #ef4444;
+$success: #22c55e;
+
+// ============================================
+// CONTAINER
+// ============================================
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f4f6ff 0%, #e8ecf8 100%);
+  font-family: 'Open Sans', sans-serif;
+  // padding: 20px;
+}
+
+.auth-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 600px;
+  background: $white;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(90, 62, 200, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+// ============================================
+// LEFT SECTION (Welcome)
+// ============================================
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+
+  .left-inner {
+    text-align: center;
+    max-width: 380px;
+  }
+
+  .left-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 30px;
+    filter: brightness(0) invert(1);
+  }
+
+  .welcome-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: $white;
+    margin: 0 0 12px 0;
+  }
+
+  .divider {
+    width: 50px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 auto 20px auto;
+    border-radius: 4px;
+  }
+
+  .welcome-desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+// ============================================
+// RIGHT SECTION (Form)
+// ============================================
+.auth-right {
+  flex: 1.2;
+  position: relative;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  overflow: hidden;
+
+  .form-bg {
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(90, 62, 200, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// GLASS CARD
+// ============================================
+.glass-card {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: $primary-dark;
+  margin: 0 0 6px 0;
+}
+
+.auth-subtitle {
+  font-size: 15px;
+  color: $gray;
+  margin: 0 0 30px 0;
+}
+
+// ============================================
+// FORM
+// ============================================
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $black;
+    font-family: 'Open Sans', sans-serif;
+
+    .input-icon {
+      font-size: 16px;
+      color: $primary;
+    }
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.3s ease;
+    background: $white;
+    color: $black;
+    outline: none;
+
+    &::placeholder {
+      color: #a0aec0;
+    }
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 4px rgba(90, 62, 200, 0.1);
+    }
+
+    &.error {
+      border-color: $error;
+
+      &:focus {
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .error-message {
+    font-size: 13px;
+    color: $error;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+}
+
+// ============================================
+// PASSWORD INPUT WITH TOGGLE
+// ============================================
+.password-input-container {
+  position: relative;
+  width: 100%;
+
+  .form-input {
+    padding-right: 16px;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $gray;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    padding-right: 0;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// ============================================
+// SUBMIT BUTTON
+// ============================================
+.submit-button {
+  width: 100%;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+  color: $white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+ 
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(90, 62, 200, 0.35);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// ============================================
+// TOGGLE LINK
+// ============================================
+.auth-toggle {
+  text-align: center;
+  margin-top: 20px;
+
+  p {
+    font-size: 14px;
+    color: $gray;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .toggle-button {
+    background: none;
+    border: none;
+    color: $primary;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+
+// Tablet
+@media (max-width: 992px) {
+  .auth-wrapper {
+    flex-direction: column;
+    max-width: 500px;
+    min-height: auto;
+  }
+
+  .auth-left {
+    padding: 30px 24px;
+    min-height: 200px;
+
+    .left-logo {
+      max-width: 140px;
+      margin-bottom: 16px;
+    }
+
+    .welcome-title {
+      font-size: 24px;
+    }
+
+    .welcome-desc {
+      font-size: 14px;
+    }
+
+    .divider {
+      width: 40px;
+      margin-bottom: 14px;
+    }
+  }
+
+  .auth-right {
+    padding: 30px 24px;
+
+    .form-bg {
+      display: none;
+    }
+  }
+
+  .glass-card {
+    max-width: 100%;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 12px;
+  }
+
+  .auth-wrapper {
+    border-radius: 16px;
+  }
+
+  .auth-left {
+    padding: 24px 16px;
+    min-height: 160px;
+
+    .left-logo {
+      max-width: 110px;
+      margin-bottom: 12px;
+    }
+
+    .welcome-title {
+      font-size: 20px;
+    }
+
+    .welcome-desc {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .divider {
+      width: 30px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .auth-right {
+    padding: 24px 16px;
+  }
+
+  .auth-title {
+    font-size: 22px;
+  }
+
+  .auth-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    gap: 4px;
+
+    .form-label {
+      font-size: 13px;
+    }
+
+    .form-input {
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 8px;
+      // padding-right: 0;
+      width: 92%;
+    }
+  }
+
+  .submit-button {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .auth-toggle {
+    p {
+      font-size: 13px;
+    }
+
+    .toggle-button {
+      font-size: 13px;
+    }
+  }
+
+  .password-input-container .password-toggle {
+    font-size: 18px;
+    right: 12px;
+  }
+}
+
+// Small Mobile
+@media (max-width: 400px) {
+  .auth-left {
+    padding: 16px 12px;
+    min-height: 130px;
+
+    .left-logo {
+      max-width: 90px;
+      margin-bottom: 10px;
+    }
+
+    .welcome-title {
+      font-size: 18px;
+    }
+
+    .welcome-desc {
+      font-size: 12px;
+    }
+
+    .divider {
+      width: 24px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .auth-right {
+    padding: 18px 12px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-subtitle {
+    font-size: 13px;
+  }
+
+  .form-group .form-input {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .submit-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
