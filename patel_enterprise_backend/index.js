@@ -51,7 +51,7 @@ app.use('/inventory', inventoryRoutes);
 
 // Test route
 app.get("/", (req, res) => {
-    res.send("Patel Enterprise Stock Management is Running OK!");
+    res.send("Patel Enterprise Stock Management new is Running OK!");
 });
 
 // ========== ERROR HANDLING MIDDLEWARE ==========
