@@ -15,8 +15,8 @@ app.use(
     cors({
         origin: [
             "http://localhost:5173",
-            "https://plq15mhd-5173.inc1.devtunnels.ms",
             "https://patel-enterprise-kappa.vercel.app",
+            "https://sfpinventory.techorses.com",
         ],
         credentials: true,
     })
